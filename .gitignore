@@ -1,0 +1,38 @@
+# .gitignore
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
+
+# Arquivos gerados automaticamente
+.vscode/
+/*.userprefs
+/*.csproj
+/*.sln
+/*.suo
+/*.pidb
+/*.user
+/*.unityproj
+/*.booproj
+
+# Logs e arquivos de rastreamento
+/Logs/
+/*.log
+*.log.*
+
+# Arquivos temporários criados pela Unity
+UnityGenerated/
+UnityCrashHandler64.exe
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Arquivos de configuração do Rider (IDE)
+.idea/
+
+# Arquivos de configuração do Visual Studio
+.vs/
