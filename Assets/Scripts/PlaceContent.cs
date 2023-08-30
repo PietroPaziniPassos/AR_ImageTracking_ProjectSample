@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+using System;
 
+[RequireComponent(typeof(ARTrackedImageManager))]
 public class PlaceContent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]
+    private List<GameObject> ArObjects = new List<GameObject>();
+    private readonly Dictionary<string, GameObject> instantiatedObjects = new Dictionary<string, GameObject>();
+    private ARTrackedImageManager arTrackedImageManager;
+    private void Awake() {
+        arTrackedImageManager = GetComponent<ARTrackedImageManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnEnable() {
+        arTrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+    }
+    private void OnDisable() {
+        arTrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
+    }
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) {
+        foreach (var trackedImage in eventArgs.added) {
+            foreach (GameObject currentObject in ArObjects) {
+                if(string.Compare(trackedImage.referenceImage.name, currentObject.name, StringComparison.OrdinalIgnoreCase) == 0 && !instantiatedObjects.ContainsKey(currentObject.name)) {
+                    GameObject instantiatedObject = Instantiate(currentObject, trackedImage.transform);
+                    instantiatedObjects[currentObject.name] = instantiatedObject;
+                }
+            }
+        }
+        foreach (var trackedImage in eventArgs.updated) {
+            instantiatedObjects[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
+        }
+        foreach (var trackedImage in eventArgs.removed) {
+            Destroy(instantiatedObjects[trackedImage.referenceImage.name]);
+            instantiatedObjects.Remove(trackedImage.referenceImage.name);
+        }
     }
 }
