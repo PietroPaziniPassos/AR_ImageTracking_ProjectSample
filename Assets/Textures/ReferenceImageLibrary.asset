@@ -16,4 +16,14 @@ MonoBehaviour:
   m_GuidHigh: 0
   m_DataStore:
     m_Storage: []
-  m_Images: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4984581616680082196
+      m_GuidHigh: 13676364089241151161
+    m_SerializedTextureGuid:
+      m_GuidLow: 5031739038575802558
+      m_GuidHigh: 17076760279976159256
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: CarPrefab
+    m_Texture: {fileID: 0}
