@@ -30,12 +30,5 @@ public class PlaceContent : MonoBehaviour
                 }
             }
         }
-        foreach (var trackedImage in eventArgs.updated) {
-            instantiatedObjects[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
-        }
-        foreach (var trackedImage in eventArgs.removed) {
-            Destroy(instantiatedObjects[trackedImage.referenceImage.name]);
-            instantiatedObjects.Remove(trackedImage.referenceImage.name);
-        }
     }
 }
