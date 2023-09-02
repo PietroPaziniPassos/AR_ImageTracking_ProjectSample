@@ -9,6 +9,8 @@ using System;
 public class PlaceContent : MonoBehaviour
 {
     [SerializeField]
+    public bool followImage;
+    [SerializeField]
     private List<GameObject> ArObjects = new List<GameObject>();
     private readonly Dictionary<string, GameObject> instantiatedObjects = new Dictionary<string, GameObject>();
     private ARTrackedImageManager arTrackedImageManager;
@@ -28,6 +30,15 @@ public class PlaceContent : MonoBehaviour
                     GameObject instantiatedObject = Instantiate(currentObject, trackedImage.transform);
                     instantiatedObjects[currentObject.name] = instantiatedObject;
                 }
+            }
+        }
+        if(followImage) {
+            foreach (var trackedImage in eventArgs.updated) {
+                instantiatedObjects[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
+            }
+            foreach (var trackedImage in eventArgs.removed) {
+                Destroy(instantiatedObjects[trackedImage.referenceImage.name]);
+                instantiatedObjects.Remove(trackedImage.referenceImage.name);
             }
         }
     }
