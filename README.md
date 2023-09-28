@@ -64,4 +64,4 @@ This code shows how the 3D object is generated and tracks the movement of the im
 It is also possible to observe that the 3D object corresponding to the image is identified by its name.
 If the name of the object is the same as the name of the image, it will be generated, otherwise it will not be.
 _______________________
-Made by [Pietro Pazini](www.linkedin.com/in/pietro-pazini)
+Made by [Pietro Pazini](https://www.linkedin.com/in/pietro-pazini)
