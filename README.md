@@ -2,8 +2,9 @@
 
 ## Overview
 
-Esse repositório é um projeto Unity de realidade aumentada baseado no rastreamento de imagem.
-O objetivo é facilitar a construção de aplicações desse modelo. 
+This repository is an augmented reality Unity project based on image tracking.
+The objective is to facilitate the construction of applications of this model.
+This project was built for the Android platform.
 
 ## How to get started
 
