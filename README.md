@@ -10,12 +10,13 @@ This project was built for the Android platform.
 
 1. Clone this repository on Unity;
 2. Open the Main scene;
-3. Import the images that you want to track inside Textures folder;
-4. Add them to Reference Image Library in Textures folder;
-5. Import the 3D objects inside 3D folder;
-6. Add them to Ar Objects in Place Content Component attached in XR Origin;
-7. Generate a build for your android;
-8. Be happy!
+3. Change the plataform for Android;
+4. Import the images that you want to track inside Textures folder;
+5. Add them to Reference Image Library in Textures folder;
+6. Import the 3D objects inside 3D folder;
+7. Add them to Ar Objects in Place Content Component attached in XR Origin;
+8. Generate a build for your android;
+9. Be happy!
 
 ## About the code
 
